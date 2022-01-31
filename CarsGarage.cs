@@ -7,6 +7,7 @@ namespace DataBase
     internal class Garage
     {
         public List<Voertuigen> voertuigen;
+        public int voertuigeningarage;
 
         public Garage()
         {
@@ -22,6 +23,8 @@ namespace DataBase
         {
             return voertuigen;
         }
+
+        
     }
 }
 
