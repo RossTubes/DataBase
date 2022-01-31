@@ -28,6 +28,10 @@ namespace DataBase
                 Start();
             }
 
+            if (Anwser1.ToLower() == "Leave")
+            {
+                Console.Clear();
+            }
         }
 
         public void opvragen()
