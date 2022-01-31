@@ -10,7 +10,10 @@ namespace DataBase
         string Anwser2;
         Garage garage = new Garage();
         int aantalVoertuigen;
-        
+        int aantalMotors;
+        int aantalAuto;
+        int aantalGroundLevel;
+        int aantalLevelOne;
 
         public void Start()
         {
@@ -19,12 +22,16 @@ namespace DataBase
 
             if (Anwser1.ToLower() == "go to garage")
             {
-                Parking();
+                ParkingLevel();
             }
 
             if (Anwser1.ToLower() == "status")
             {
-                Console.WriteLine(aantalVoertuigen);
+                Console.WriteLine(aantalVoertuigen + ". voertuigen");
+                Console.WriteLine(aantalMotors + ". Motors" );
+                Console.WriteLine(aantalAuto + ". Auto's");
+                Console.WriteLine(aantalGroundLevel + ". vehicles GroundLevel");
+                Console.WriteLine(aantalLevelOne + ". vehicles levelOne");
                 Start();
             }
 
@@ -40,6 +47,41 @@ namespace DataBase
             Anwser2 = Console.ReadLine();
         }
 
+        public void ParkingLevel()
+        {
+            Console.WriteLine("You wanna park on groundLevel or level one?");
+            Anwser1 = Console.ReadLine();
+
+            if (Anwser1.ToLower() == "groundlevel")
+            {
+                Console.WriteLine("vehicle moved to groundLevel");
+                if (aantalVoertuigen <= 5)
+                {
+                    aantalGroundLevel++;
+                    Parking();
+                }
+                else
+                {
+                    Console.WriteLine("Garage is full");
+                    Start();
+                }
+            }
+            if (Anwser1.ToLower() == "level one")
+            {
+                Console.WriteLine("vehicle moved to LevelOne");
+                if (aantalVoertuigen <= 5)
+                {
+                    aantalLevelOne++;
+                    Parking();
+                }
+                else
+                {
+                    Console.WriteLine("Garage is full");
+                    Start();
+                }
+            }
+        }
+
         public void Parking()
         {
             Console.WriteLine("Is it a Car or Motor");
@@ -50,7 +92,8 @@ namespace DataBase
                 garage.AddVoertuigen(aAuto);
                 Console.WriteLine("Car parked inside of the garage!");
                 aantalVoertuigen++;
-                if(aantalVoertuigen <= 10)
+                aantalAuto++;
+                if(aantalVoertuigen <= 5)
                 {
                     Start();
                 }
@@ -69,7 +112,8 @@ namespace DataBase
                 garage.AddVoertuigen(aMotor);
                 Console.WriteLine("Motor parked inside of the garage!");
                 aantalVoertuigen++;
-                if (aantalVoertuigen <= 10)
+                aantalMotors++;
+                if (aantalVoertuigen <= 5)
                 {
                     Start();
                 }
