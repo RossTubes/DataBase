@@ -8,6 +8,7 @@ namespace DataBase
     {
         string Anwser1;
         string Anwser2;
+        string Anwser3;
         Garage garage = new Garage();
         int aantalVoertuigen;
         int aantalMotors;
@@ -27,12 +28,28 @@ namespace DataBase
 
             if (Anwser1.ToLower() == "status")
             {
+                Console.WriteLine("choose motor or car status or total");
+                string Anwser2 = Console.ReadLine();
+
+                if (Anwser2.ToLower() == "motor")
+                {
+                    Console.WriteLine(aantalMotors + ". Motors" );
+                    Start();
+                }
+                if (Anwser2.ToLower() == "car")
+                {
+                    Console.WriteLine(aantalAuto + ". Cars");
+                    Start();
+                }
+                if (Anwser2.ToLower() == "total")
+                {
                 Console.WriteLine(aantalVoertuigen + ". voertuigen");
-                Console.WriteLine(aantalMotors + ". Motors" );
-                Console.WriteLine(aantalAuto + ". Auto's");
+                Console.WriteLine(aantalAuto + ". Cars");
                 Console.WriteLine(aantalGroundLevel + ". vehicles GroundLevel");
                 Console.WriteLine(aantalLevelOne + ". vehicles levelOne");
                 Start();
+                }
+
             }
 
             if (Anwser1.ToLower() == "Leave")

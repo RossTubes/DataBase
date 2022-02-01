@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DataBase
 {
-    class Voertuigen
+    abstract class Voertuigen
     {
         private String name;
         public int ID;
